@@ -19,7 +19,7 @@ jobs:
     - name: Build front
       run: |
         echo Pack application
-        tar -cvzf build.tar.gz src
+        tar -cvzf build.tar.gz src/*
         mv build.tar.gz artifacts
 
   # Upload artifact
