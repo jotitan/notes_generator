@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Notes generation</title>
+    <script src="vexflow.js"></script>
+
+    <style>
+        label {
+            font-weight: bold;
+        }
+        input[type="submit"]:hover{
+            background-color:green;
+            color:white;
+            font-weight: bold;
+            cursor:pointer;
+        }
+        input, select {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        #options {
+            width: 500px;
+            margin: 100px auto auto;
+        }
+
+        .reload-button {
+            position:absolute;
+            right:5px;
+            top:5px;
+            font-size:20px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="options">
+    <form onclick="return false;">
+        <fieldset>
+            <legend>Options</legend>
+            <label for="nbOctaves">Nb octaves</label>
+            <select id="nbOctaves">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+
+            <label for="startHigh">Hauteur de départ</label>
+            <select id="startHigh">
+                <option value="2">Do très grave C2</option>
+                <option value="3">Do grave C3</option>
+                <option value="4" selected>Do milieu C4</option>
+                <option value="5">Do aigu C5</option>
+            </select>
+
+            <label for="complexity">Complexité</label>
+            <select id="complexity">
+                <option value="2">Facile</option>
+                <option value="4">Moyen</option>
+                <option value="7">Difficile</option>
+            </select>
+
+            <label for="clef">Complexité</label>
+            <select id="clef">
+                <option value="treble">Sol</option>
+                <option value="bass">Fa</option>
+                <option value="soprano">UT 1</option>
+                <option value="mezzo-soprano">UT 2</option>
+                <option value="alto">UT 3</option>
+                <option value="tenor">UT 4</option>
+            </select>
+
+            <input type="submit" value="Générer" id="generate"/>
+        </fieldset>
+    </form>
+</div>
+
+
+<div id="output" style="height:100%; display:none"></div>
+<button class="reload-button">⟳</button>
+
+<script src="index.js" type="module"></script>
+
+</body>
+</html>

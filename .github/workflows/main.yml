@@ -1,0 +1,29 @@
+name: CI build notes generator
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - uses: actions/checkout@v2
+
+      # Build the front
+    - name: Build front
+      run: |
+        echo Pack application
+        tar -cvzf build.tar.gz src
+        mv build.tar.gz ../artifacts
+
+  # Upload artifact
+    - uses: actions/upload-artifact@v1
+      with:
+        name: Artifacts notes generator
+        path: artifacts
