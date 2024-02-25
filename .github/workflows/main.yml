@@ -20,7 +20,7 @@ jobs:
       run: |
         echo Pack application
         tar -cvzf build.tar.gz src
-        mv build.tar.gz ../artifacts
+        mv build.tar.gz artifacts
 
   # Upload artifact
     - uses: actions/upload-artifact@v1
